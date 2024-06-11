@@ -80,6 +80,35 @@ function orderToppings(toppingsIndex) {
 // ANCHOR draw function
 function draw() {
   const cartElem = document.getElementById('cart')
-  let orderContent = ``
-  cartElem.innerText = ``
+
+  // let orderContent = `You have ordered  with ${toppings[i].name} on a ${vessels[i].name}`
+
+  let flavorContent = ``
+
+  for (let i = 0; i < flavors.length; i++) {
+    const flavor = flavors[i]
+    if (flavor.quantity > 0) {
+      flavorContent += `${flavor.quantity} scoops of ${flavor.name}, `
+    }
+  }
+
+  let toppingsContent = ``
+
+  for (let i = 0; i < toppings.length; i++) {
+    const topping = toppings[i]
+    if (topping.quantity > 0) {
+      toppingsContent += `with ${topping.name}`
+    }
+  }
+
+  let vesselContent = ``
+
+  for (let i = 0; i > vessels.length; i++) {
+    const vessel = vessels[i]
+    if (vessel.quantity > 0) {
+      vesselContent += `on a ${vessel.name}`
+    }
+  }
+
+  console.log(vesselContent);
 }
