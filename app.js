@@ -54,6 +54,7 @@ function orderVessel(vesselIndex) {
       vessels[i].quantity++
       console.log(`${vessels[i].name}, ${vessels[i].quantity}!`);
     }
+    console.log(vessels[i].quantity);
   }
 }
 
@@ -81,8 +82,6 @@ function orderToppings(toppingsIndex) {
 function draw() {
   const cartElem = document.getElementById('cart')
 
-  // let orderContent = `You have ordered  with ${toppings[i].name} on a ${vessels[i].name}`
-
   let flavorContent = ``
 
   for (let i = 0; i < flavors.length; i++) {
@@ -97,18 +96,22 @@ function draw() {
   for (let i = 0; i < toppings.length; i++) {
     const topping = toppings[i]
     if (topping.quantity > 0) {
-      toppingsContent += `with ${topping.name}`
+      toppingsContent += `${topping.name}, `
     }
   }
 
   let vesselContent = ``
 
-  for (let i = 0; i > vessels.length; i++) {
+  for (let i = 0; i < vessels.length; i++) {
     const vessel = vessels[i]
     if (vessel.quantity > 0) {
-      vesselContent += `on a ${vessel.name}`
+      vesselContent += `${vessel.name}.`
     }
   }
 
-  console.log(vesselContent);
+  let orderContent = `You have ordered ${flavorContent} with ${toppingsContent} on a ${vesselContent}`
+
+  cartElem.innerText = orderContent
 }
+
+
