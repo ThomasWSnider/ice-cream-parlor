@@ -56,6 +56,7 @@ function orderVessel(vesselIndex) {
     }
     console.log(vessels[i].quantity);
   }
+  draw()
 }
 
 // ANCHOR flavor functions
@@ -66,6 +67,7 @@ function orderFlavor(flavorIndex) {
       console.log(`${flavors[i].name}, ${flavors[i].quantity} scoops!`);
     }
   }
+  draw()
 }
 
 // ANCHOR toppings functions
@@ -76,6 +78,7 @@ function orderToppings(toppingsIndex) {
       console.log(`${toppings[i].name}, ${toppings[i].quantity}`);
     }
   }
+  draw()
 }
 
 // ANCHOR draw function
@@ -114,4 +117,20 @@ function draw() {
   cartElem.innerText = orderContent
 }
 
+function checkOut() {
 
+  const cartElem = document.getElementById('cart')
+
+  let orderContent = `Thank you For ordering!`
+  for (let i = 0; i < vessels.length; i++) {
+    vessels[i].quantity = 0
+  }
+  for (let i = 0; i < flavors.length; i++) {
+    flavors[i].quantity = 0
+  }
+  for (let i = 0; i < toppings.length; i++) {
+    toppings[i].quantity = 0
+  }
+
+  cartElem.innerText = orderContent
+}
